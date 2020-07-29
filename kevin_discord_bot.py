@@ -1,3 +1,5 @@
+import asyncio
+import time
 import discord
 import config
 
@@ -15,18 +17,24 @@ async def on_ready():
 
 @client.event
 async def on_member_join(member):
+    """ Welcomes new members in the general channel 
+    """
     for channel in member.guild.channels:
         if str(channel) == "general":
             await client.send.message(f"Welcome {member.mention} to the server")
 
 @client.event
 async def on_mod(message):
+    """ Only certain users are allowed in this function 
+    """
     valid_users = []
     if str(message.author) in valid_users:
         pass
 
 @client.event
 async def on_message(message):
+    """ Commands can only be run in the following channels
+    """
     server_id = client.get_guild(config.SERVER_ID)
     channels = ["commands"]
 
@@ -43,6 +51,8 @@ async def on_message(message):
 
     else:
         print(f"User {message.autor}... commands can not be ran in this channel")
+
+
 
 if __name__ == "__main__":
     client.run(config.TOKEN)
