@@ -10,9 +10,9 @@ try:
     import config
     SERVER_ID = config.SERVER_ID
     TOKEN = config.TOKEN
-except ModuleNotFoundError:
-    SERVER_ID = process.env.SERVER_ID
-    TOKEN = process.env.TOKEN
+except ModuleNotFoundError as err:
+    SERVER_ID = SERVER_ID
+    TOKEN = TOKEN
 
 CSS_GRID = "https://developer.mozilla.org/en-US/docs/Web/CSS/grid"
 CSS_FLEX = "https://developer.mozilla.org/en-US/docs/Web/CSS/flex"
