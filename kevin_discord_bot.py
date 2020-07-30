@@ -5,9 +5,10 @@
 """
 
 import discord
+import config
 
-SERVER_ID = process.env.SERVER_ID
-TOKEN = process.env.TOKEN
+SERVER_ID = config.SERVER_ID 
+TOKEN = config.TOKEN
 
 CSS_GRID = "https://developer.mozilla.org/en-US/docs/Web/CSS/grid"
 CSS_FLEX = "https://developer.mozilla.org/en-US/docs/Web/CSS/flex"
