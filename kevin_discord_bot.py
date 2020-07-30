@@ -4,11 +4,12 @@
                                    -> Server ID
 """
 
-import discord
-import config
+import os
 
-SERVER_ID = config.SERVER_ID 
-TOKEN = config.TOKEN
+import discord
+
+SERVER_ID = os.environ.get('SERVER_ID') 
+TOKEN = os.environ.get('TOKEN') 
 
 CSS_GRID = "https://developer.mozilla.org/en-US/docs/Web/CSS/grid"
 CSS_FLEX = "https://developer.mozilla.org/en-US/docs/Web/CSS/flex"
