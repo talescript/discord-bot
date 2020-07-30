@@ -1,3 +1,9 @@
+"""
+    User settings -> Developer Mode: Turn on
+    Click on the Server (top left) -> Server settings -> Widget
+                                   -> Server ID
+"""
+
 import discord
 
 try:
@@ -8,16 +14,9 @@ except ModuleNotFoundError:
     SERVER_ID = process.env.SERVER_ID
     TOKEN = process.env.TOKEN
 
-"""
-    User settings -> Developer Mode: Turn on
-    Click on the Server (top left) -> Server settings -> Widget
-                                   -> Server ID
-"""
 CSS_GRID = "https://developer.mozilla.org/en-US/docs/Web/CSS/grid"
 CSS_FLEX = "https://developer.mozilla.org/en-US/docs/Web/CSS/flex"
 KEVIN = "https://www.kevinpowell.co/"
-
-
 
 client = discord.Client()
 
