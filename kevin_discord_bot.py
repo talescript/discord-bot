@@ -1,6 +1,12 @@
 import discord
 
-import config
+try:
+    import config
+    SERVER_ID = config.SERVER_ID
+    TOKEN = config.TOKEN
+except ModuleNotFoundError:
+    SERVER_ID = process.env.SERVER_ID
+    TOKEN = process.env.TOKEN
 
 """
     User settings -> Developer Mode: Turn on
@@ -39,7 +45,7 @@ async def on_mod(message):
 async def on_message(message):
     """ Commands can only be run in the following channels
     """
-    server_id = client.get_guild(config.SERVER_ID)
+    server_id = client.get_guild(SERVER_ID)
     channels = ["off-topic"]
     restricted_words = []
 
@@ -51,7 +57,7 @@ async def on_message(message):
             #await message.channel.purge(limit=1)  ## needs more permissions
             await message.channel.send("Clean up your language you dirty rotten scoundrel")
     
-    if message.content == "!help":
+    if message.content == "!help": 
         embed = discord.Embed(title="Bot commands", description="If you press my buttons in the right order I will help you")
         embed.add_field(name="!kevin", value="Shows kevin's website")
         embed.add_field(name="!grid", value="MDN Docs on grid")
@@ -81,4 +87,4 @@ async def on_message(message):
 
 
 if __name__ == "__main__":
-    client.run(config.TOKEN)
+    client.run(TOKEN)
