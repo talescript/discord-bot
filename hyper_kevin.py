@@ -14,7 +14,6 @@ TOKEN = os.environ.get('TOKEN')
 
 client = commands.Bot(command_prefix = ".")
 
-search = "animated card"
 youtube_url = "https://www.youtube.com/watch?v="
 youtube_search = "https://www.youtube.com/kepowob/search?"
 
