@@ -69,17 +69,13 @@ async def ping(ctx):
 def is_it_user(ctx):
     return ctx.author.id == 542770113443528705 
 
-@client.command(aliases=['8ball'])
-@commands.check(is_it_user) # will run if the custom check returns true
-async def _8ball(ctx, *, question):
+#@commands.check(is_it_user) # will run if the custom check returns true
+@client.command(aliases=['toss'])
+async def coinflip(ctx, *, question):
     """ aliases takes a list of strings. You can have +1 aliases.
         * allows for multiple arguments to be passed
     """
-    responses = ['It is certain',
-                 'It is decidedly so.',
-                 'Without a doubta',
-                 'Yes'
-            ]
+    responses = ['heads', 'tails']
     await ctx.send(f'Question: {question}\nAnswer: {random.choice(responses)}\n@{ctx.author}')
 
 @client.command()
