@@ -75,7 +75,7 @@ async def coinflip(ctx, *, question):
         * allows for multiple arguments to be passed
     """
     responses = ['heads', 'tails']
-    await ctx.send(f'Question: {question}\nAnswer: {random.choice(responses)}\n@{ctx.author}')
+    await ctx.send(f'Question: {question}\nAnswer: {random.choice(responses)}\n{ctx.author.mention}')
 
 @client.command()
 @commands.has_permissions(kick_members=True)
