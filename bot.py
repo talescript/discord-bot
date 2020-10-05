@@ -64,7 +64,7 @@ async def youtube(ctx, *, args, amount=1):
 
 @client.command()
 async def ping(ctx): 
-    """ By default, the name of the function is the name of the command
+    """ You think Javascript is fast? pffttt... 
     """
     await ctx.send(f'Pong! {round(client.latency * 1000)} ms')
 
@@ -75,10 +75,10 @@ def is_it_user(ctx):
 #@commands.check(is_it_user) # will run if the custom check returns true
 @client.command(aliases=['toss'])
 async def coinflip(ctx, *, question):
-    """ aliases takes a list of strings. You can have +1 aliases.
-        * allows for multiple arguments to be passed
+    """ Whenever you are stuck, toss a coin. Heads and tails have 
+        been replaced for yes and no respectively.
     """
-    responses = ['heads', 'tails']
+    responses = ['yes', 'no']
     await ctx.send(f'Question: {question}\nAnswer: {random.choice(responses)}\n{ctx.author.mention}')
 
 @client.command()
