@@ -21,6 +21,10 @@ youtube_search = "https://www.youtube.com/kepowob/search?"
 # specific activity has happened
 @client.event
 async def on_ready():
+    ####
+    ## MODIFY FOR IT TO CHANGE PERIODICALLY
+    ## Instead of on load
+    ####
     GAMES = ['Minecraft', 'Anything but Fortnite', 'Lucid Dream']
     is_playing = random.choice(GAMES)
     await client.change_presence(status=discord.Status.idle,
@@ -42,11 +46,11 @@ async def on_command_error(ctx, error):
 @client.command()
 @commands.has_permissions(manage_messages=True)
 async def clear(ctx, amount=2):
-    """ Takes as an argument a number of messages to be deleted.
+    """ Deletes the last message  
     """
     await ctx.channel.purge(limit=amount)        
 
-@client.command()
+@client.command(aliases=['yt', 'YouTube'])
 async def youtube(ctx, *, args, amount=1):
     """ Searches for kevins videos on a given topic. 
     """
