@@ -68,6 +68,13 @@ async def ping(ctx):
     """
     await ctx.send(f'Pong! {round(client.latency * 1000)} ms')
 
+@client.command()
+async def embed(ctx): 
+    """ css snippets for common layouts 
+    """
+    embed = discord.Embed(title=f"{ctx.guild.name}", description="lorem ipsum")
+    await ctx.send(embed=embed)
+
 # Custom check
 def is_it_user(ctx):
     return ctx.author.id == 542770113443528705 
