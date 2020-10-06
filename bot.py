@@ -54,6 +54,8 @@ async def clear(ctx, amount=2):
 async def youtube(ctx, title, amount=1):
     """ Searches for kevins videos on a given topic. 
     """
+    if amount >= 4:
+        amount = 3
     params = urllib.parse.urlencode({'query': title}) 
     search = f'{youtube_search}{params}'
     html = urllib.request.urlopen(search)
