@@ -51,10 +51,10 @@ async def clear(ctx, amount=2):
     await ctx.channel.purge(limit=amount)        
 
 @client.command(aliases=['yt', 'YouTube'])
-async def youtube(ctx, *, args, amount=1):
+async def youtube(ctx, title, amount=1):
     """ Searches for kevins videos on a given topic. 
     """
-    params = urllib.parse.urlencode({'query': args}) 
+    params = urllib.parse.urlencode({'query': title}) 
     search = f'{youtube_search}{params}'
     html = urllib.request.urlopen(search)
     content = html.read().decode()
