@@ -68,11 +68,15 @@ async def ping(ctx):
     """
     await ctx.send(f'Pong! {round(client.latency * 1000)} ms')
 
-@client.command()
-async def embed(ctx): 
-    """ css snippets for common layouts 
+@client.command(aliases=['mysti'])
+async def cssdemystified(ctx): 
+    """ A course by Kevin that helps you unravel CSS. Not me, 
+        the other Kevin. 
     """
-    embed = discord.Embed(title=f"{ctx.guild.name}", description="lorem ipsum")
+    embed = discord.Embed(title=f"CSS demystified", 
+            description="Start writing css with confidence",
+            url="https://cssdemystified.com/")
+    embed.set_thumbnail(url="https://cssdemystified.com/assets/kevinpowell@0,25x.jpg")
     await ctx.send(embed=embed)
 
 # Custom check
