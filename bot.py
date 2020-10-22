@@ -72,8 +72,8 @@ async def ping(ctx):
 
 @client.command(aliases=['.crl'])
 async def conquering_layouts(ctx): 
-    """ A course by Kevin that helps you unravel CSS. Not me, 
-        the other Kevin. 
+    """ Your path to finally conuering responsive layouts 
+       
     """
     embed = discord.Embed(title=f"Conquering Responsive Layouts", 
             description="Start creating responsive layouts with confidence!",
