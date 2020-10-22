@@ -70,7 +70,18 @@ async def ping(ctx):
     """
     await ctx.send(f'Pong! {round(client.latency * 1000)} ms')
 
-@client.command(aliases=['mysti'])
+@client.command(aliases=['.crl'])
+async def conquering_layouts(ctx): 
+    """ A course by Kevin that helps you unravel CSS. Not me, 
+        the other Kevin. 
+    """
+    embed = discord.Embed(title=f"Conquering Responsive Layouts", 
+            description="Start creating responsive layouts with confidence!",
+            url="https://courses.kevinpowell.co/conquering-responsive-layouts")
+    embed.set_thumbnail(url="https://cssdemystified.com/assets/kevinpowell@0,25x.jpg")
+    await ctx.send(embed=embed)
+
+@client.command(aliases=['.dem'])
 async def cssdemystified(ctx): 
     """ A course by Kevin that helps you unravel CSS. Not me, 
         the other Kevin. 
