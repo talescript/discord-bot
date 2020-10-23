@@ -70,7 +70,7 @@ async def ping(ctx):
     """
     await ctx.send(f'Pong! {round(client.latency * 1000)} ms')
 
-@client.command(aliases=['.crl'])
+@client.command(aliases=['crl'])
 async def conquering_layouts(ctx): 
     """ Your path to finally conuering responsive layouts 
        
@@ -81,7 +81,7 @@ async def conquering_layouts(ctx):
     embed.set_thumbnail(url="https://cssdemystified.com/assets/kevinpowell@0,25x.jpg")
     await ctx.send(embed=embed)
 
-@client.command(aliases=['.dem'])
+@client.command(aliases=['dem'])
 async def cssdemystified(ctx): 
     """ A course by Kevin that helps you unravel CSS. Not me, 
         the other Kevin. 
