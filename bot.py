@@ -135,6 +135,14 @@ async def clear_error(ctx, error):
     if isinstance(error, commands.MissingRequiredArgument):
         await ctx.send(f'Please specify an amount of messages to delete')
 
+@client.event
+async def on_message(message):
+    if message.author == client.user:
+        return
+
+    if "pixel perfect" in message.content.lower():
+        await message.channel.send(f"This is your first warning {client.user.name}. The term which shall not be named")
+
 if __name__ == "__main__":
     try:
         for filename in os.listdir('./cogs'):
