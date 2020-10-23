@@ -141,10 +141,10 @@ async def on_message(message):
         return
 
     if "pixel perfect" in message.content.lower():
-	emoji = '\N{THUMBS DOWN SIGN}'
-	await message.add_reaction(emoji)
+        emoji = '\N{THUMBS DOWN SIGN}'
+        await message.add_reaction(emoji)
 #        await message.channel.send(f"This is your first warning {client.user.name}. The term which shall not be named")
-	await message.author.send(f"The term which shall not be named")
+        await message.author.send(f"The term which shall not be named")
 
 if __name__ == "__main__":
     try:
