@@ -109,12 +109,12 @@ async def coinflip(ctx, *, question):
 async def css_anatomy(ctx):
     """ Explains the different parts of a css rule """
     await channel.send(file=discord.File("anatomy-of-a-css-rule.png")
-"""
+
 @client.command()
 @commands.has_permissions(kick_members=True)
 async def kick(ctx, member : discord.Member, *, reason=None):
     await member.kick(reason=reason)
-"""
+
 @client.command()
 @commands.has_permissions(ban_members=True)
 async def ban(ctx, member : discord.Member, *, reason=None):
