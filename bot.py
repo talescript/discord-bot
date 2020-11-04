@@ -109,11 +109,7 @@ async def coinflip(ctx, *, question):
 async def css_anatomy(ctx):
     """ Explains the different parts of a css rule
     """
-    file = discord.File("assets/anatomy-of-a-css-rule.png",
-    filename="css_rule.png")
-    embed = discord.Embed()
-    embed.set_image(url="attachment://css_rule.png")
-    await channel.send(file=file, embed=embed)
+    await channel.send(file=(discord.File("anatomy-of-a-css-rule.png")
 
 
 @client.command()
