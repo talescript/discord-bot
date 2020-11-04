@@ -106,7 +106,7 @@ async def coinflip(ctx, *, question):
     await ctx.send(f'Question: {question}\nAnswer: {random.choice(responses)}\n{ctx.author.mention}')
 
 @client.command(aliases=['can'])
-async def css_anatomy(ctx, *, question):
+async def css_anatomy(ctx):
     """ Explains the different parts of a css rule
     """
     file = discord.File("assets/anatomy-of-a-css-rule.png",
