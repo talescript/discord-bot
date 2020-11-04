@@ -111,7 +111,6 @@ async def css_anatomy(ctx):
     """
     await channel.send(file=discord.File("anatomy-of-a-css-rule.png")
 
-
 @client.command()
 @commands.has_permissions(kick_members=True)
 async def kick(ctx, member : discord.Member, *, reason=None):
