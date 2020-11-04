@@ -113,7 +113,7 @@ async def css_anatomy(ctx, *, question):
     filename="css_rule.png")
     embed = discord.Embed()
     embed.set_image(url="attachment://css_rule.png")
-    await channel.sent(file=file, embed=embed)
+    await channel.send(file=file, embed=embed)
 
 
 @client.command()
