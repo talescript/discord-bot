@@ -105,6 +105,17 @@ async def coinflip(ctx, *, question):
     responses = ['yes', 'no']
     await ctx.send(f'Question: {question}\nAnswer: {random.choice(responses)}\n{ctx.author.mention}')
 
+@client.command(aliases=['can'])
+async def css_anatomy(ctx, *, question):
+    """ Explains the different parts of a css rule
+    """
+    file = discord.File("assets/anatomy-of-a-css-rule.png",
+    filename="css_rule.png")
+    embed = discord.Embed()
+    embed.set_image(url="attachment://css_rule.png")
+    await channel.sent(file=file, embed=embed)
+
+
 @client.command()
 @commands.has_permissions(kick_members=True)
 async def kick(ctx, member : discord.Member, *, reason=None):
