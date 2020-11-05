@@ -70,6 +70,12 @@ async def ping(ctx):
     """
     await ctx.send(f'Pong! {round(client.latency * 1000)} ms')
 
+@client.command(aliases=['can'])
+async def cssanatomy(ctx):
+    """ Just........ pfffttt
+    """
+    await ctx.send(file=discord.File('assets/anatomy.png')
+
 @client.command(aliases=['crl'])
 async def conquering_layouts(ctx):
     """ Your path to finally conuering responsive layouts
@@ -104,12 +110,6 @@ async def coinflip(ctx, *, question):
     """
     responses = ['yes', 'no']
     await ctx.send(f'Question: {question}\nAnswer: {random.choice(responses)}\n{ctx.author.mention}')
-
-#@client.command(aliases=['can'])
-#async def css_anatomy(ctx):
-#    """ Explains the different parts of a css rule
-#    """
-#    await channel.send(file=discord.File("anatomy.png")
 
 @client.command()
 @commands.has_permissions(kick_members=True)
