@@ -111,30 +111,6 @@ async def coinflip(ctx, *, question):
     responses = ['yes', 'no']
     await ctx.send(f'Question: {question}\nAnswer: {random.choice(responses)}\n{ctx.author.mention}')
 
-@client.command()
-@commands.has_permissions(kick_members=True)
-async def kick(ctx, member : discord.Member, *, reason=None):
-    await member.kick(reason=reason)
-
-@client.command()
-@commands.has_permissions(ban_members=True)
-async def ban(ctx, member : discord.Member, *, reason=None):
-    await member.ban(reason=reason)
-
-@client.command()
-@commands.has_permissions(ban_members=True)
-async def unban(ctx, *, member):
-    banned_users = await ctx.guild.bans()
-    member_name, member_discriminator = member.split('#')
-
-    for ban_entry in banned_users:
-        user = ban_entry.user
-
-        if (user.name, user.discriminator) == (member_name, member_discriminator):
-            await ctx.guild.unban(user)
-            await ctx.send(f'Unbanned {user.name}')
-            return
-
 # Specifying errors directly to each command
 @clear.error
 async def clear_error(ctx, error):
