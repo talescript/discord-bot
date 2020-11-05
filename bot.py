@@ -74,7 +74,7 @@ async def ping(ctx):
 async def cssanatomy(ctx):
     """ Just........ pfffttt
     """
-    await ctx.send(file=discord.File('assets/anatomy.png')
+    await ctx.send(file=discord.File('assets/anatomy.png'))
 
 @client.command(aliases=['crl'])
 async def conquering_layouts(ctx):
