@@ -1,4 +1,4 @@
-import os 
+import os
 import logging
 import random
 import urllib.request
@@ -10,7 +10,7 @@ from discord.ext import commands
 
 logging.basicConfig(level=logging.INFO)
 
-TOKEN = os.environ.get('TOKEN') 
+TOKEN = os.environ.get('TOKEN')
 
 client = commands.Bot(command_prefix = ".")
 
@@ -39,24 +39,24 @@ async def on_member_join(member):
 async def on_command_error(ctx, error):
     """ The event will be triggered for all functions
         if using commands.MissingRequiredArgument
-    """ 
+    """
     if isinstance(error, commands.CommandNotFound):
         await ctx.send(f'Invalid command used. To get a lists of commands type `.help`')
-    
+
 @client.command()
 @commands.has_permissions(manage_messages=True)
 async def clear(ctx, amount=2):
-    """ Deletes the last message  
+    """ Deletes the last message
     """
-    await ctx.channel.purge(limit=amount)        
+    await ctx.channel.purge(limit=amount)
 
 @client.command(aliases=['yt', 'YouTube'])
 async def youtube(ctx, title, amount=1):
-    """ Searches for kevins videos on a given topic. 
+    """ Searches for kevins videos on a given topic.
     """
     if amount >= 4:
         amount = 3
-    params = urllib.parse.urlencode({'query': title}) 
+    params = urllib.parse.urlencode({'query': title})
     search = f'{youtube_search}{params}'
     html = urllib.request.urlopen(search)
     content = html.read().decode()
@@ -65,14 +65,14 @@ async def youtube(ctx, title, amount=1):
         await ctx.send(f'{youtube_url}{video}')
 
 @client.command()
-async def ping(ctx): 
-    """ You think Javascript is fast? pffttt... 
+async def ping(ctx):
+    """ You think Javascript is fast? pffttt...
     """
     await ctx.send(f'Pong! {round(client.latency * 1000)} ms')
 
 @client.command(aliases=['crl'])
-async def conquering_layouts(ctx): 
-    """ Your path to finally conuering responsive layouts 
+async def conquering_layouts(ctx):
+    """ Your path to finally conuering responsive layouts
        
     """
     embed = discord.Embed(title=f"Conquering Responsive Layouts", 
@@ -82,11 +82,11 @@ async def conquering_layouts(ctx):
     await ctx.send(embed=embed)
 
 @client.command(aliases=['dem'])
-async def cssdemystified(ctx): 
-    """ A course by Kevin that helps you unravel CSS. Not me, 
-        the other Kevin. 
+async def cssdemystified(ctx):
+    """ A course by Kevin that helps you unravel CSS. Not me,
+        the other Kevin.
     """
-    embed = discord.Embed(title=f"CSS demystified", 
+    embed = discord.Embed(title=f"CSS demystified",
             description="Start writing css with confidence",
             url="https://cssdemystified.com/")
     embed.set_thumbnail(url="https://cssdemystified.com/assets/kevinpowell@0,25x.jpg")
@@ -94,22 +94,22 @@ async def cssdemystified(ctx):
 
 # Custom check
 def is_it_user(ctx):
-    return ctx.author.id == 542770113443528705 
+    return ctx.author.id == 542770113443528705
 
 #@commands.check(is_it_user) # will run if the custom check returns true
 @client.command(aliases=['toss'])
 async def coinflip(ctx, *, question):
-    """ Whenever you are stuck, toss a coin. Heads and tails have 
+    """ Whenever you are stuck, toss a coin. Heads and tails have
         been replaced for yes and no respectively.
     """
     responses = ['yes', 'no']
     await ctx.send(f'Question: {question}\nAnswer: {random.choice(responses)}\n{ctx.author.mention}')
 
-@client.command(aliases=['can'])
-async def css_anatomy(ctx):
-    """ Explains the different parts of a css rule 
-    """
-    await channel.send(file=discord.File("anatomy.png")
+#@client.command(aliases=['can'])
+#async def css_anatomy(ctx):
+#    """ Explains the different parts of a css rule
+#    """
+#    await channel.send(file=discord.File("anatomy.png")
 
 @client.command()
 @commands.has_permissions(kick_members=True)
@@ -128,10 +128,10 @@ async def unban(ctx, *, member):
     member_name, member_discriminator = member.split('#')
 
     for ban_entry in banned_users:
-        user = ban_entry.user 
+        user = ban_entry.user
 
         if (user.name, user.discriminator) == (member_name, member_discriminator):
-            await ctx.guild.unban(user) 
+            await ctx.guild.unban(user)
             await ctx.send(f'Unbanned {user.name}')
             return
 
