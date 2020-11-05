@@ -107,7 +107,8 @@ async def coinflip(ctx, *, question):
 
 @client.command(aliases=['can'])
 async def css_anatomy(ctx):
-    """ Explains the different parts of a css rule """
+    """ Explains the different parts of a css rule 
+    """
     await channel.send(file=discord.File("anatomy.png")
 
 @client.command()
