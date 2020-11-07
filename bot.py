@@ -116,8 +116,8 @@ async def coinflip(ctx, *, question):
     """
     responses = ['yes', 'no']
     if not 'sure' in question.lower():
-        await ctx.send(f'Question: {question}\nAnswer: {random.choice(responses)}\n{ctx.author.mention}')
-    await ctx.send(f'The captain says you are a friend. I will not kill you {ctx.author.mention}')
+        return await ctx.send(f'Question: {question}\nAnswer: {random.choice(responses)}\n{ctx.author.mention}')
+    return await ctx.send(f'The captain says you are a friend. I will not kill you. {ctx.author.mention}')
 
 # Specifying errors directly to each command
 @clear.error
