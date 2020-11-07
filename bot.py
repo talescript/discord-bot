@@ -115,7 +115,7 @@ async def coinflip(ctx, *, question):
         been replaced for yes and no respectively.
     """
     responses = ['yes', 'no']
-    if not 'sure'.lower() in question:
+    if not 'sure' in question.lower():
         await ctx.send(f'Question: {question}\nAnswer: {random.choice(responses)}\n{ctx.author.mention}')
     await ctx.send(f'The captain says you are a friend. I will not kill you {ctx.author.mention}')
 
