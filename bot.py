@@ -72,9 +72,15 @@ async def ping(ctx):
 
 @client.command(aliases=['can'])
 async def cssanatomy(ctx):
-    """ Just........ pfffttt
+    """ Explains the different parts of a css rule
     """
     await ctx.send(file=discord.File('assets/anatomy.png'))
+
+@client.command(aliases=['box_sizing'])
+async def box_model(ctx):
+    """ There is only one, sane, choice.
+    """
+    await ctx.send(file=discord.File('assets/borderbox.png'))
 
 @client.command(aliases=['crl'])
 async def conquering_layouts(ctx):
@@ -108,6 +114,10 @@ async def coinflip(ctx, *, question):
     """ Whenever you are stuck, toss a coin. Heads and tails have
         been replaced for yes and no respectively.
     """
+    if 'sure'.lower() in question.content:
+        await ctx.send(f'The captain says you are a friend. I will not kill you
+                ctx.author.mention')
+
     responses = ['yes', 'no']
     await ctx.send(f'Question: {question}\nAnswer: {random.choice(responses)}\n{ctx.author.mention}')
 
