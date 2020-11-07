@@ -114,10 +114,10 @@ async def coinflip(ctx, *, question):
     """ Whenever you are stuck, toss a coin. Heads and tails have
         been replaced for yes and no respectively.
     """
-    if 'sure'.lower() in question.content:
+    responses = ['yes', 'no']
+    if 'sure'.lower() in ctx.content:
         await ctx.send(f'The captain says you are a friend. I will not kill you {ctx.author.mention}')
 
-    responses = ['yes', 'no']
     await ctx.send(f'Question: {question}\nAnswer: {random.choice(responses)}\n{ctx.author.mention}')
 
 # Specifying errors directly to each command
