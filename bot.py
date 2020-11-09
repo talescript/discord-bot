@@ -50,6 +50,17 @@ async def clear(ctx, amount=2):
     """
     await ctx.channel.purge(limit=amount)
 
+@client.event
+async def on_message(message):
+    if message.author == client.user:
+        return
+    if message.attachments[0].url.endswith('html'):
+        return await ctx.send(f'"It\'s quite possible this asteroid is not
+                entirely stable". Upload your file to codepen
+                {ctx.author.mention}, and someone may come around to take
+                a look.')
+
+
 @client.command(aliases=['yt', 'YouTube'])
 async def youtube(ctx, title, amount=1):
     """ Searches for kevins videos on a given topic.
@@ -70,17 +81,17 @@ async def ping(ctx):
     """
     await ctx.send(f'Pong! {round(client.latency * 1000)} ms')
 
-@client.command(aliases=['can'])
-async def cssanatomy(ctx):
-    """ Explains the different parts of a css rule
-    """
-    await ctx.send(file=discord.File('assets/anatomy.png'))
-
 @client.command(aliases=['box_sizing'])
 async def box_model(ctx):
     """ There is only one, sane, choice.
     """
     await ctx.send(file=discord.File('assets/borderbox.png'))
+
+@client.command(aliases=['can'])
+async def cssanatomy(ctx):
+    """ Explains the different parts of a css rule
+    """
+    await ctx.send(file=discord.File('assets/anatomy.png'))
 
 @client.command(aliases=['crl'])
 async def conquering_layouts(ctx):
@@ -103,10 +114,6 @@ async def cssdemystified(ctx):
             url="https://cssdemystified.com/")
     embed.set_thumbnail(url="https://cssdemystified.com/assets/kevinpowell@0,25x.jpg")
     await ctx.send(embed=embed)
-
-# Custom check
-def is_it_user(ctx):
-    return ctx.author.id == 542770113443528705
 
 #@commands.check(is_it_user) # will run if the custom check returns true
 @client.command(aliases=['toss'])
