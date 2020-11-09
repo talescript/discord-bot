@@ -58,8 +58,8 @@ async def on_message(message):
             f'Upload your file to codepen {message.author.mention},'
             f'and someone may come around to take a look.'
         )
-    if message.author == client.user:
-        return
+    #if message.author == client.user:
+    #    return
     for ext in reply_ext:
         if message.content.endswith(ext):
             print("it works")
