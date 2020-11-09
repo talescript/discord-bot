@@ -54,14 +54,13 @@ async def clear(ctx, amount=2):
 async def on_message(message):
     reply = (
             f'"It\'s quite possible this asteroid is not entirely stable".'
-            f'Upload your file to codepen {ctx.author.mention},'
+            f'Upload your file to codepen {message.author.mention},'
             f'and someone may come around to take a look.'
         )
     if message.author == client.user:
         return
     if message.attachments[0].url.endswith('html'):
         return await message.channel.send(reply)
-
 
 @client.command(aliases=['yt', 'YouTube'])
 async def youtube(ctx, title, amount=1):
