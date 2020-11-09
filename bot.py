@@ -57,6 +57,7 @@ async def clear(ctx, amount=2):
 
 @client.listen('on_message')
 async def on_message(message):
+    await message.channel.send("working partially")
     reply_ext = ['html']
     reply = (
             f'"It\'s quite possible this asteroid is not entirely stable".'
