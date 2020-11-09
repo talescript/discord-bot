@@ -55,7 +55,7 @@ async def clear(ctx, amount=2):
     await ctx.channel.purge(limit=amount)
 
 
-@bot.listen('on_message')
+@client.listen('on_message')
 async def on_message(message):
     reply_ext = ['html']
     reply = (
