@@ -52,7 +52,7 @@ async def clear(ctx, amount=2):
 
 @client.event
 async def on_message(message):
-    message = (
+    reply = (
             f'"It\'s quite possible this asteroid is not entirely stable".'
             f'Upload your file to codepen {ctx.author.mention},'
             f'and someone may come around to take a look.'
@@ -60,7 +60,7 @@ async def on_message(message):
     if message.author == client.user:
         return
     if message.attachments[0].url.endswith('html'):
-        return await ctx.send(message)
+        return await message.channel.send(reply)
 
 
 @client.command(aliases=['yt', 'YouTube'])
