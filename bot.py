@@ -17,6 +17,7 @@ client = commands.Bot(command_prefix = ".")
 youtube_url = "https://www.youtube.com/watch?v="
 youtube_search = "https://www.youtube.com/kepowob/search?"
 
+
 # Events is a piece of code happens when the bot detects a 
 # specific activity has happened
 @client.event
@@ -31,9 +32,11 @@ async def on_ready():
             activity=discord.Game(is_playing))
     print('Bot is ready')
 
+
 @client.event
 async def on_member_join(member):
     print(f'{member} has joined a server.')
+
 
 @client.event
 async def on_command_error(ctx, error):
@@ -43,6 +46,7 @@ async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandNotFound):
         await ctx.send(f'Invalid command used. To get a lists of commands type `.help`')
 
+
 @client.command()
 @commands.has_permissions(manage_messages=True)
 async def clear(ctx, amount=2):
@@ -50,7 +54,8 @@ async def clear(ctx, amount=2):
     """
     await ctx.channel.purge(limit=amount)
 
-@client.event
+
+@bot.listen('on_message')
 async def on_message(message):
     reply_ext = ['html']
     reply = (
@@ -58,12 +63,15 @@ async def on_message(message):
             f'Upload your file to codepen {message.author.mention},'
             f'and someone may come around to take a look.'
         )
-    #if message.author == client.user:
-    #    return
+
+    if message.author == client.user:
+        return
+
     for ext in reply_ext:
         if message.content.endswith(ext):
             print("it works")
             return await message.channel.send(reply)
+
 
 @client.command(aliases=['yt', 'YouTube'])
 async def youtube(ctx, title, amount=1):
@@ -79,11 +87,13 @@ async def youtube(ctx, title, amount=1):
     for video in video_ids[:amount]:
         await ctx.send(f'{youtube_url}{video}')
 
+
 @client.command()
 async def ping(ctx):
     """ You think Javascript is fast? pffttt...
     """
     await ctx.send(f'Pong! {round(client.latency * 1000)} ms')
+
 
 @client.command(aliases=['box_sizing'])
 async def box_model(ctx):
@@ -91,11 +101,13 @@ async def box_model(ctx):
     """
     await ctx.send(file=discord.File('assets/borderbox.png'))
 
+
 @client.command(aliases=['can'])
 async def cssanatomy(ctx):
     """ Explains the different parts of a css rule
     """
     await ctx.send(file=discord.File('assets/anatomy.png'))
+
 
 @client.command(aliases=['crl'])
 async def conquering_layouts(ctx):
@@ -108,6 +120,7 @@ async def conquering_layouts(ctx):
     embed.set_thumbnail(url="https://cssdemystified.com/assets/kevinpowell@0,25x.jpg")
     await ctx.send(embed=embed)
 
+
 @client.command(aliases=['dem'])
 async def cssdemystified(ctx):
     """ A course by Kevin that helps you unravel CSS. Not me,
@@ -118,6 +131,7 @@ async def cssdemystified(ctx):
             url="https://cssdemystified.com/")
     embed.set_thumbnail(url="https://cssdemystified.com/assets/kevinpowell@0,25x.jpg")
     await ctx.send(embed=embed)
+
 
 #@commands.check(is_it_user) # will run if the custom check returns true
 @client.command(aliases=['toss'])
@@ -130,11 +144,13 @@ async def coinflip(ctx, *, question):
         return await ctx.send(f'Question: {question}\nAnswer: {random.choice(responses)}\n{ctx.author.mention}')
     return await ctx.send(f'The captain says you are a friend. I will not kill you. {ctx.author.mention}')
 
+
 # Specifying errors directly to each command
 @clear.error
 async def clear_error(ctx, error):
     if isinstance(error, commands.MissingRequiredArgument):
         await ctx.send(f'Please specify an amount of messages to delete')
+
 
 if __name__ == "__main__":
     try:
