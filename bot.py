@@ -59,8 +59,9 @@ async def on_message(message):
         )
     if message.author == client.user:
         return
-    if message.attachments[0].url.endswith('html'):
-        return await message.channel.send(reply)
+    if message.attachments:
+        if message.attachments[0].url.endswith('html'):
+            return await message.channel.send(reply)
 
 @client.command(aliases=['yt', 'YouTube'])
 async def youtube(ctx, title, amount=1):
