@@ -62,6 +62,7 @@ async def on_message(message):
         return
     for ext in reply_ext:
         if message.content.endswith(ext):
+            print("it works")
             return await message.channel.send(reply)
 
 @client.command(aliases=['yt', 'YouTube'])
