@@ -8,11 +8,16 @@ import re
 import discord 
 from discord.ext import commands
 
+description = (
+        f"Hi, I'm Kevin. I teach people how to make the web and how to make "
+        f"it look good while they're at it."
+        )
+
 logging.basicConfig(level=logging.INFO)
 
 TOKEN = os.environ.get('TOKEN')
 
-client = commands.Bot(command_prefix = ".")
+client = commands.Bot(command_prefix = "?", description=description)
 
 youtube_url = "https://www.youtube.com/watch?v="
 youtube_search = "https://www.youtube.com/kepowob/search?"
