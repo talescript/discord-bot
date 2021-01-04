@@ -64,8 +64,8 @@ async def clear(ctx, amount=2):
 async def on_message(message):
     reply_ext = ['html']
     reply = (
-            f'"It\'s quite possible this asteroid is not entirely stable".'
-            f'Upload your file to codepen {message.author.mention},'
+            f'"It\'s quite possible this asteroid is not entirely stable". '
+            f'Upload your file to codepen {message.author.mention}, '
             f'and someone may come around to take a look.'
         )
 
