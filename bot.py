@@ -17,7 +17,7 @@ logging.basicConfig(level=logging.INFO)
 
 TOKEN = os.environ.get('TOKEN')
 
-client = commands.Bot(command_prefix = "?", description=description)
+client = commands.Bot(command_prefix = ".", description=description)
 
 youtube_url = "https://www.youtube.com/watch?v="
 youtube_search = "https://www.youtube.com/kepowob/search?"
@@ -49,7 +49,7 @@ async def on_command_error(ctx, error):
         if using commands.MissingRequiredArgument
     """
     if isinstance(error, commands.CommandNotFound):
-        await ctx.send(f'Invalid command used. To get a lists of commands type `.help`')
+        print(f'Invalid command used. To get a lists of commands type `.help`')
 
 
 @client.command()
