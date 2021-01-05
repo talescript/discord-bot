@@ -62,7 +62,7 @@ async def clear(ctx, amount=2):
 
 @client.listen('on_message')
 async def on_message(message):
-    reply_ext = ['html']
+    ext = '.html'
     reply = (
             f'"It\'s quite possible this asteroid is not entirely stable". '
             f'Upload your file to codepen {message.author.mention}, '
@@ -72,10 +72,9 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    for ext in reply_ext:
-        if message.content.endswith(ext):
-            print("it works")
-            return await message.channel.send(reply)
+    if message.attachments[0].url.endswith('html'):
+        print(message.attachments[0].url.endswith('html'))
+        return await message.channel.send(reply)
 
 
 @client.command(aliases=['yt', 'YouTube'])
