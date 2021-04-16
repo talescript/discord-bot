@@ -83,10 +83,11 @@ async def dont_ask_to_ask(ctx):
     send a message inquiering users in a channel to ask a question directly
 
     """
-    embed = discord.Embed(title=f"Don't ask to ask, just ask",
+    message = "Help people help you. Don't ask to ask, just ask \n Read more about this here"
+    embed = discord.Embed(title="Don't ask to ask, just ask",
                           url="https://dontasktoask.com")
     embed.set_thumbnail(url="https://dontasktoask.com/favicon.png")
-    await ctx.send(embed=embed)
+    await ctx.send(content=message, embed=embed)
 
 
 @client.command(aliases=['yt', 'YouTube'])
