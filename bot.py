@@ -77,6 +77,17 @@ async def on_message(message):
         return await message.channel.send(reply)
 
 
+@client.command(aliases=['data', 'dontask'])
+async def conquering_layouts(ctx):
+    """ Don't ask to ask, just ask
+
+    """
+    embed = discord.Embed(title=f"Don't ask to ask, just ask",
+                          url="https://dontasktoask.com")
+    embed.set_thumbnail(url="https://dontasktoask.com/favicon.png")
+    await ctx.send(embed=embed)
+
+
 @client.command(aliases=['yt', 'YouTube'])
 async def youtube(ctx, title, amount=1):
     """ Searches for kevins videos on a given topic.
