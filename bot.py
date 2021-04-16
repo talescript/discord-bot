@@ -77,9 +77,10 @@ async def on_message(message):
         return await message.channel.send(reply)
 
 
-@client.command(aliases=['data', 'dontask'])
-async def conquering_layouts(ctx):
-    """ Don't ask to ask, just ask
+@client.command(aliases=['dontask', 'dontasktoask', 'dont-ask-to-ask'])
+async def dont_ask_to_ask(ctx):
+    """ Don't ask to ask, just ask.
+    send a message inquiering users in a channel to ask a question directly
 
     """
     embed = discord.Embed(title=f"Don't ask to ask, just ask",
