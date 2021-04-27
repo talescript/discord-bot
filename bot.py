@@ -80,10 +80,13 @@ async def on_message(message):
 @client.command(aliases=['dontask', 'dontasktoask', 'dont-ask-to-ask'])
 async def dont_ask_to_ask(ctx):
     """ Don't ask to ask, just ask.
-    send a message inquiering users in a channel to ask a question directly
+    Send a message enquiring users in a channel to ask a question directly
 
     """
-    message = "Help people help you. Don't ask to ask, just ask \n Read more about this here"
+    message = "Be a good netizen and don't ask to ask. It wastes the other person's time by having to ask you what is the question and waiting for a reply.
+
+Rather ask \"How do I do [problem] with Java and [other relevant info]?\"
+"
     embed = discord.Embed(title="Don't ask to ask, just ask",
                           url="https://dontasktoask.com")
     embed.set_thumbnail(url="https://dontasktoask.com/favicon.png")
