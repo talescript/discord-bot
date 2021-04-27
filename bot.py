@@ -77,6 +77,19 @@ async def on_message(message):
         return await message.channel.send(reply)
 
 
+@client.command(aliases=['dontask', 'dontasktoask', 'dont-ask-to-ask'])
+async def dont_ask_to_ask(ctx):
+    """ Don't ask to ask, just ask.
+    send a message inquiering users in a channel to ask a question directly
+
+    """
+    message = "Help people help you. Don't ask to ask, just ask \n Read more about this here"
+    embed = discord.Embed(title="Don't ask to ask, just ask",
+                          url="https://dontasktoask.com")
+    embed.set_thumbnail(url="https://dontasktoask.com/favicon.png")
+    await ctx.send(content=message, embed=embed)
+
+
 @client.command(aliases=['yt', 'YouTube'])
 async def youtube(ctx, title, amount=1):
     """ Searches for kevins videos on a given topic.
