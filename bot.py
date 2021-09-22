@@ -77,7 +77,7 @@ async def on_message(message):
         return await message.channel.send(reply)
 
 
-@client.command(aliases=['dontask', 'dontasktoask', 'dont-ask-to-ask'])
+@client.command(aliases=['dontask', 'dontasktoask', 'dont-ask-to-ask', 'justask'])
 async def dont_ask_to_ask(ctx):
     """ Don't ask to ask, just ask.
     Send a message enquiring users in a channel to ask a question directly
